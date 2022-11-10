@@ -16,15 +16,22 @@ class roman_integers {
     public int romanToInt(String s) {
         int sum = 0;
         int len = s.length();
-        char[] sToChars = s.toCharArray();
-        sum += romanInts.get(sToChars[0]);
+        sum += romanInts.get(s.substring(0, 1));
+        if(len<=1)
+            return sum;
+        int prev, curr;
         for(int i=1; i<len; i++) {
-
+            prev = romanInts.get(s.substring(i-1, i));
+            curr = romanInts.get(s.substring(i, i+1));
+            if(prev<curr)
+                sum += prev - curr;
+            else
+                sum += curr;
         }
         return sum;
     }
 
     public static void main(String[] args) {
-        
+        System.out.println(new roman_integers().romanToInt("XVI"));
     }
 }
