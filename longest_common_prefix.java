@@ -4,8 +4,10 @@
 
 public class longest_common_prefix {
     public static String longestCommonPrefix(String[] strs) {
-        String prefix = "";
-        
+        char[] prefix = strs[0].toCharArray();
+        for(int i=1; i<strs.length; i++) {
+            
+        }
         return prefix;
     }
     
